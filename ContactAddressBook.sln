@@ -3,7 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{1D24F009-257D-40A9-BC8C-6460F5363E6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAddressBook.Business", "ContactAddressBook.Business\ContactAddressBook.Business.csproj", "{6664B8AC-AAE4-4ADC-B6C6-34C46EA69EAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAddressBook.DataAccessLayer", "ContactAddressBook.DataAccessLayer\ContactAddressBook.DataAccessLayer.csproj", "{BE39DAC9-2718-4DB9-8CCF-A53DF8D46E3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAddressBook.Entities", "ContactAddressBook.Entities\ContactAddressBook.Entities.csproj", "{E4CB3B28-39AD-43CB-885F-537EDEF01DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAddressBook.RestAPI", "ContactAddressBook.RestAPI\ContactAddressBook.RestAPI.csproj", "{24059A7C-E21B-4761-834F-80993B066529}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D24F009-257D-40A9-BC8C-6460F5363E6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D24F009-257D-40A9-BC8C-6460F5363E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D24F009-257D-40A9-BC8C-6460F5363E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D24F009-257D-40A9-BC8C-6460F5363E6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6664B8AC-AAE4-4ADC-B6C6-34C46EA69EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6664B8AC-AAE4-4ADC-B6C6-34C46EA69EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6664B8AC-AAE4-4ADC-B6C6-34C46EA69EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6664B8AC-AAE4-4ADC-B6C6-34C46EA69EAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE39DAC9-2718-4DB9-8CCF-A53DF8D46E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE39DAC9-2718-4DB9-8CCF-A53DF8D46E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE39DAC9-2718-4DB9-8CCF-A53DF8D46E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE39DAC9-2718-4DB9-8CCF-A53DF8D46E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4CB3B28-39AD-43CB-885F-537EDEF01DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4CB3B28-39AD-43CB-885F-537EDEF01DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4CB3B28-39AD-43CB-885F-537EDEF01DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4CB3B28-39AD-43CB-885F-537EDEF01DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24059A7C-E21B-4761-834F-80993B066529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24059A7C-E21B-4761-834F-80993B066529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24059A7C-E21B-4761-834F-80993B066529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24059A7C-E21B-4761-834F-80993B066529}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
