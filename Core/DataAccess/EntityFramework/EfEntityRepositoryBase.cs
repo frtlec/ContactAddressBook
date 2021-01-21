@@ -18,10 +18,24 @@ namespace Core.DataAccess.EntityFramework
         {
             using (var context=new TContext())
             {
-                return context.Set<TEntity>().SingleOrDefault(filter);
+                return context.Set<TEntity>().FirstOrDefault(filter);
             }
         }
+        public TEntity Get(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includeExpressions)
+        {
+            using (var context = new TContext())
+            {
+                DbSet<TEntity> dbSet = context.Set<TEntity>();
 
+                TEntity item = null;
+                foreach (var includeExpression in includeExpressions)
+                {
+                    item =dbSet.Include(includeExpression).SingleOrDefault(filter);
+                }
+
+                return item;
+            }
+        }
         public IList<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())
@@ -31,13 +45,29 @@ namespace Core.DataAccess.EntityFramework
                      context.Set<TEntity>().Where(filter).ToList();
             }
         }
+        public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null,params Expression<Func<TEntity, object>>[] includeExpressions)
+        {
+            using (var context = new TContext())
+            {
+                DbSet<TEntity> dbSet = context.Set<TEntity>();
 
+                List<TEntity> list = null;
+                foreach (var includeExpression in includeExpressions)
+                {
+                    list = filter==null?dbSet.Include(includeExpression).ToList()
+                        : dbSet.Include(includeExpression).Where(filter).ToList();
+                }
+
+                return list;
+            }
+        }
         public void Add(TEntity entity)
         {
             using (var context=new TContext())
             {
                var addedEntity= context.Entry(entity);
-                addedEntity.State = EntityState.Added;
+                //addedEntity.State = EntityState.Added;
+                addedEntity.Context.Add(entity);
                 context.SaveChanges();
             }
         }
@@ -57,7 +87,8 @@ namespace Core.DataAccess.EntityFramework
             using (var context = new TContext())
             {
                 var updatedEntity = context.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
+                //updatedEntity.State = EntityState.Modified;
+                updatedEntity.Context.Update(entity);
                 context.SaveChanges();
             }
         }

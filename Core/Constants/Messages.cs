@@ -7,26 +7,17 @@ namespace Core.Constants
 {
     public static class Messages
     {
-        public static string ProductAdded = "Ürün başarıyla eklendi.";
-        public static string ProductDeleted = "Ürün başarıyla silindi.";
-        public static string ProductUpdated = "Ürün başarıyla güncellendi.";
+        public static string PersonAddedSuccess= "person is registered successfully";
+        public static string PersonAddedNotRegistered = "person is not registered";
+        public static string PersonNameAlreadyExists= "This person has been registered before";
 
+        public static string PersonNotExist = "This person not exist";
+        public static string PersonRemoveSuccess = "person has been deleted";
+        public static string PersonUpdateSuccess = "person has been updated";
 
-        public static string CategoryAdded = "Kategori başarıyla eklendi.";
-        public static string CategoryDeleted = "Kategori başarıyla silindi.";
-        public static string CategoryUpdated = "Kategori başarıyla güncellendi.";
-
-        public static string UserNotFound = "Kullanıcı bulunamadı.";
-        public static string PasswordError = "Şifre hatalı";
-        public static string successfulLogin = "Giriş başarılı";
-        public static string UserAlreadyExists= "Bu kullanıcı zaten kayıtlı.";
-        public static string UserRegistered="Kullanıcı başarıyla kayıt edildi";
-        public static string AccessTokenCreated="Access Token Başarıyla oluşturuldu";
-        public static string AuthorizationDenied = "Yetkiniz yok!";
-        public static string AuthenticationDenied = "Kimlik Doğrulanamadı!";
-        public static string ProductNameAlreadyExists="Ürün ismi zaten mevcut";
-
-        public static string SecurityKeyError = "Esit Güvenlik anahtarı hatalı";
-        public static string ClientKeyError = "Esit Anatarı Hatalı";
+        public static string ContactRemoveSuccess = "contact has been deleted";
+        public static string ContactAddedSuccess = "contact info is registered successfully";
+        public static string ContactNotExist = "This contact not exist";
+        public static string ContactPhoneNumberExit = "This phone number has been registered before";
     }
 }
