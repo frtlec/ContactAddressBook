@@ -7,7 +7,7 @@
 <li>Redis Server for caching</li></ul>
 
 <h4>Usage</h4>
-<pre style='background:#ff77'>for all /api</pre>
+<pre style='background:#ff77'>/api</pre>
 <span>Creating a contact in the address book:</span>
        <pre>[POST] /persons/add</pre>
        <pre>
