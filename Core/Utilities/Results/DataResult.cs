@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Core.Utilities.Results
 {
+    [Serializable]
     public class DataResult<T> : Result, IDataResult<T>
     {
         public DataResult(T data,bool success, string message) : base(success, message)
@@ -17,5 +18,7 @@ namespace Core.Utilities.Results
 
 
         public T Data { get; }
+
+       
     }
 }

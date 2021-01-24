@@ -1,4 +1,5 @@
 ﻿using ContactAddressBook.Entities.Concrete;
+using ContactAddressBook.Entities.Dtos;
 using Core.Utilities.Results;
 using System;
 using System.Collections.Generic;

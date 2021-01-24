@@ -7,6 +7,8 @@ using System.Text;
 
 namespace ContactAddressBook.Entities.Concrete
 {
+  
+    [Serializable]
     public class Person:IEntity
     {
         public int PersonId { get; set; }
@@ -18,7 +20,7 @@ namespace ContactAddressBook.Entities.Concrete
         public DateTime PersonCreatedDate { get; set; }
         public DateTime PersonLastUpdateDate{ get; set; }
 
-        public virtual ICollection<ContactInfo> ContactInfos { get; set; }
+        public List<ContactInfo> ContactInfos { get; set; }
     }
     public class PersonEntityConfiguration : IEntityTypeConfiguration<Person>
     {

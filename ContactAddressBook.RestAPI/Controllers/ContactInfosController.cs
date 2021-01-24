@@ -40,5 +40,15 @@ namespace ContactAddressBook.RestAPI.Controllers
             }
             return Ok(result.Message);
         }
+        [HttpPost("add")]
+        public IActionResult ShortGroupByCity(ContactInfo contactInfo)
+        {
+            var result = _contactInfoService.AddContactInfo(contactInfo);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            return Ok(result.Message);
+        }
     }
 }

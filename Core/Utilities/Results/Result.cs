@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Core.Utilities.Results
 {
+    [Serializable]
     public class Result : IResult
     {
         public bool Success { get; }

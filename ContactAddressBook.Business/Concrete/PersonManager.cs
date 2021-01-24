@@ -2,6 +2,8 @@
 using ContactAddressBook.Business.ValidationRules.FluentValidation;
 using ContactAddressBook.DataAccessLayer.Abstract;
 using ContactAddressBook.Entities.Concrete;
+using ContactAddressBook.Entities.Dtos;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Constants;
 using Core.Entities;
@@ -17,16 +19,21 @@ namespace ContactAddressBook.Business.Concrete
     public class PersonManager : IPersonService
     {
         private IPersonDal _personDal;
+        private IContactInfoDal _contactInfoDal;
 
         public PersonManager(IPersonDal personDal)
         {
             _personDal = personDal;
         }
 
+        [CacheAspect( duration: 20)]
         public IDataResult<List<Person>> GetAllPersons()
         {
-            return new SuccessDataResult<List<Person>>(_personDal.GetList(null, pi1 => pi1.ContactInfos));
+            var result = new SuccessDataResult<List<Person>>(_personDal.GetList(null, pi1 => pi1.ContactInfos));
+            return result;
         }
+
+     
         public IDataResult<List<Person>> GetListByCompany(string company)
         {
             return new SuccessDataResult<List<Person>>(_personDal.GetList(p=>p.PersonCompany==company, pi1 => pi1.ContactInfos));
@@ -38,7 +45,8 @@ namespace ContactAddressBook.Business.Concrete
                                 pi1=>pi1.ContactInfos));
         }
         #region add
-        [ValidationAspect(typeof(PersonValidation), Priority = 1)]
+        [ValidationAspect(typeof(PersonValidation), Priority =0)]
+        [CacheRemoveAspect(pattern: "*IPersonService*",Priority =2)]
         public IResult AddPerson(Person person)
         {
             IResult result = BusinessRules.Run(

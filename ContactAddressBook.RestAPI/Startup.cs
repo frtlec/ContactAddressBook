@@ -39,22 +39,22 @@ namespace ContactAddressBook.RestAPI
             services.AddControllers().AddNewtonsoftJson(options =>
                      options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                  );
-            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(opt =>
-                {
-                    opt.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidIssuer = tokenOptions.Issuer,
-                        ValidAudience = tokenOptions.Audience,
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-                    };
-                });
-            services.AddDependencyResolvers(new Core.Utilities.IoC.ICoreModule[] { new CoreModule() });
+            //var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddJwtBearer(opt =>
+            //    {
+            //        opt.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateIssuer = true,
+            //            ValidateAudience = true,
+            //            ValidateLifetime = true,
+            //            ValidIssuer = tokenOptions.Issuer,
+            //            ValidAudience = tokenOptions.Audience,
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+            //        };
+            //    });
+            services.AddDependencyResolvers(new Core.Utilities.IoC.ICoreModule[] { new CoreModule(Configuration) });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

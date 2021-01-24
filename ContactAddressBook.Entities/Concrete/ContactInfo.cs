@@ -7,6 +7,7 @@ using System.Text;
 
 namespace ContactAddressBook.Entities.Concrete
 {
+    [Serializable]
     public class ContactInfo : IEntity
     {
         public int ContactInfoId { get; set; }

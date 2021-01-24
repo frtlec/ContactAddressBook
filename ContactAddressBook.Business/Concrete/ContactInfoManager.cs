@@ -2,6 +2,7 @@
 using ContactAddressBook.Business.ValidationRules.FluentValidation;
 using ContactAddressBook.DataAccessLayer.Abstract;
 using ContactAddressBook.Entities.Concrete;
+using ContactAddressBook.Entities.Dtos;
 using Core.Aspects.Autofac.Validation;
 using Core.Constants;
 using Core.Utilities.Business;
@@ -93,6 +94,17 @@ namespace ContactAddressBook.Business.Concrete
                 return new ErrorResult(Messages.ContactPhoneNumberExit);
             }
             return new SuccessResult();
+        }
+
+        public IDataResult<ReportDto> GetReport()
+        {
+            var report = new ReportDto
+            {
+                CounterPersonByCityDto = _contactInfoDal.CounterPersonGroupByCities(),
+                CounterPhoneNumberByCityDto = _contactInfoDal.CounterPhoneNumberGroupByCities()
+            };
+
+            return new SuccessDataResult<ReportDto>(report);
         }
     }
 }
