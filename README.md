@@ -83,13 +83,21 @@
          Response
            Success Message/Error Message</pre>
        
+  Removing the contact information from a contact
+  <pre>  [GET] /contactinfos/removeall/{personId}
+         Request Params 
+             personId:int
+        Response
+        Success Message/Error Message</pre>
+            
+   Requesting a report which shows the statistics according to the location of people in the address book.      
        
        
        
-       
-       
-       
-       
-       
-       
-       
+      
+       [GET] /reports/getstatisticreportbylocation
+         Request  Params 
+             does not take parameter
+         Reponse Params
+                counterPersonByCityDto:[{numberOfPerson:int,cityName:string}]
+                counterPhoneNumberByCityDto:[{counterPhoneNumber:int,cityName:string}]
