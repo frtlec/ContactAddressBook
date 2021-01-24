@@ -3,6 +3,7 @@ using ContactAddressBook.Business.ValidationRules.FluentValidation;
 using ContactAddressBook.DataAccessLayer.Abstract;
 using ContactAddressBook.Entities.Concrete;
 using ContactAddressBook.Entities.Dtos;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Constants;
 using Core.Utilities.Business;
@@ -22,7 +23,7 @@ namespace ContactAddressBook.Business.Concrete
         {
             _contactInfoDal = contactInfoDal;
         }
-
+        [CacheAspect(duration: 20)]
         public IResult RemoveAllContactByPersonId (int personId)
         {
             List<ContactInfo> contactsInDB = GetListContactInfosByPersonId(personId);

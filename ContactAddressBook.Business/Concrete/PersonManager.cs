@@ -45,7 +45,7 @@ namespace ContactAddressBook.Business.Concrete
                                 pi1=>pi1.ContactInfos));
         }
         #region add
-        [ValidationAspect(typeof(PersonValidation), Priority =0)]
+        [ValidationAspect(typeof(PersonValidation), Priority =1)]
         [CacheRemoveAspect(pattern: "*IPersonService*",Priority =2)]
         public IResult AddPerson(Person person)
         {
@@ -70,6 +70,7 @@ namespace ContactAddressBook.Business.Concrete
         #endregion
 
         #region remove
+        [CacheRemoveAspect(pattern: "*IPersonService*", Priority = 2)]
         public IResult RemovePerson(Person person)
         {
             Person personInDB = GetPerson(person.PersonId);
@@ -86,6 +87,7 @@ namespace ContactAddressBook.Business.Concrete
         #endregion
         #region update
         [ValidationAspect(typeof(PersonValidation), Priority = 1)]
+        [CacheRemoveAspect(pattern: "*IPersonService*", Priority = 2)]
         public IResult UpdatePerson(Person person)
         {
             Person personInDB = GetPerson(person.PersonId);

@@ -40,16 +40,6 @@ namespace ContactAddressBook.RestAPI.Controllers
             }
             return Ok(result.Data);
         }
-        [HttpGet("getlistbycompony/{company}")]
-        public IActionResult GetListByCompony(string company)
-        {
-            var result = _personService.GetListByCompany(company);
-            if (!result.Success)
-            {
-                return BadRequest(result.Message);
-            }
-            return Ok(result.Data);
-        }
         [HttpPost("add")]
         public IActionResult Add(Person  person)
         {
